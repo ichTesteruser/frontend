@@ -8,6 +8,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import axios from 'axios'; //* promise-based HTTP Client for node js 
 import Camel from './image/Camel.png';
+import { BASE_URL } from './srv'
 
 //* Hats , Glasses , Shirts , Shoes
 
@@ -85,7 +86,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${BASE_URL}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
